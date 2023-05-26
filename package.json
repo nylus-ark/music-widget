@@ -20,6 +20,7 @@
     "del": "^6.1.1",
     "editorconfig-checker": "^4.0.2",
     "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.3.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-htmlmin": "^5.0.1",
@@ -28,6 +29,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-svgo": "^2.2.1",
     "gulp-svgstore": "^9.0.0",
+    "gulp-terser": "^2.1.0",
     "path": "^0.12.7",
     "postcss": "^8.4.14",
     "sass": "^1.54.0",
@@ -36,6 +38,7 @@
     "stylelint-scss": "^4.3.0"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001489",
     "postcss-scss": "^4.0.4"
   }
 }
