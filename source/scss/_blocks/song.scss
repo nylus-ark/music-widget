@@ -1,0 +1,33 @@
+.song {
+  text-align: center;
+  width: 100%;
+  max-width: 186px;
+  opacity: 0.5;
+
+  &--current {
+    max-width: 244px;
+    opacity: 1;
+  }
+
+  &__cover {
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 0 27px;
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 2.22rem;
+    font-weight: 700;
+    margin: 0 0 7px;
+  }
+
+  &__artist {
+    font-size: 1.66rem;
+    margin: 0 0 31px;
+  }
+
+  &__info {
+    color: $color-white;
+  }
+}

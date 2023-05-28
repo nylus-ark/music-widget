@@ -1,0 +1,51 @@
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin: 0 0 21px;
+
+  &__btn {
+    @include no-btn;
+  }
+
+  &__icon {
+    fill: $color-white;
+
+    &:hover {
+      fill: $color-light-grey;
+    }
+
+    &--setup {
+      fill: $color-light-grey;
+
+      &:hover {
+        fill: $color-white;
+      }
+
+      &:active {
+        fill: $color-active;
+      }
+    }
+
+    &--shuffle {
+      width: 20px;
+      height: 18px;
+    }
+
+    &--switch {
+      width: 16px;
+      height: 14px;
+    }
+
+    &--play-pause {
+      width: 14px;
+      height: 16px;
+    }
+
+    &--loop {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

@@ -16,4 +16,10 @@
 /*
   Import all other blocks
 */
+@import "_blocks/wrapper";
 @import "_blocks/container";
+@import "_blocks/player";
+@import "_blocks/songs";
+@import "_blocks/song";
+@import "_blocks/options";
+@import "_blocks/queue-bar";
