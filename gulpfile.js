@@ -89,7 +89,7 @@ gulp.task('clean', function () {
 
 gulp.task('copy', function() {
   return gulp.src([
-      paths.src + '/img/*.{png,jpg}',
+      paths.src + '/img/**/*.{png,jpg}',
       paths.src + '/fonts/**/*'
     ], {
       base: paths.src
@@ -110,7 +110,7 @@ gulp.task('copy-js', function () {
 });
 
 gulp.task('svg-store', function () {
-  return gulp.src(paths.src + '/img/svg/*.svg')
+  return gulp.src(paths.src + '/img/icons/*.svg')
     .pipe(svgo())
     .pipe(svgstore({
       inlineSvg: true
