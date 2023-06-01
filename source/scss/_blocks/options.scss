@@ -28,6 +28,14 @@
       }
     }
 
+    &--active {
+      fill: $color-active;
+
+      &:hover {
+        fill: $color-active;
+      }
+    }
+
     &--shuffle {
       width: 20px;
       height: 18px;

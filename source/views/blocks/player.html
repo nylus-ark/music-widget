@@ -1,14 +1,14 @@
 <div class="player">
   <div class="songs">
-    <div class="songs__song song">
+    <div class="songs__song song song--prev">
       <div class="song__cover">
-        <img src="img/covers/cover-drake.png" alt="">
+        <img class="song__cover-img" src="" alt="">
       </div>
     </div>
 
     <div class="songs__song song song--current">
       <div class="song__cover">
-        <img src="img/covers/cover-weeknd.png" alt="">
+        <img class="song__cover-img" src="" alt="">
       </div>
       <div class="song__title">
         Alone Again
@@ -21,9 +21,9 @@
       </div>
     </div>
 
-    <div class="songs__song song">
+    <div class="songs__song song song--next">
       <div class="song__cover">
-        <img src="img/covers/cover-dababy.png" alt="">
+        <img class="song__cover-img" src="img/covers/cover-dababy.png" alt="">
       </div>
     </div>
   </div>
@@ -31,6 +31,9 @@
   @@include('blocks/options.html')
 
   <div class="queue-bar">
-    <input class="queue-bar__range" type="range" min="0" max="100" value="0">
+    <audio class="track" src=""></audio>
+    <input class="queue-bar__range js-queueBarRange" type="range" min="0" max="100" value="0">
   </div>
+
+  <!-- <div class="track"></div> -->
 </div>

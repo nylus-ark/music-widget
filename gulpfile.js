@@ -90,7 +90,8 @@ gulp.task('clean', function () {
 gulp.task('copy', function() {
   return gulp.src([
       paths.src + '/img/**/*.{png,jpg}',
-      paths.src + '/fonts/**/*'
+      paths.src + '/fonts/**/*',
+      paths.src + '/audio/**/*',
     ], {
       base: paths.src
     })

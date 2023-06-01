@@ -7,6 +7,7 @@
   &--current {
     max-width: 244px;
     opacity: 1;
+    height: 500px;
   }
 
   &__cover {
@@ -17,14 +18,15 @@
 
   &__title {
     color: $color-white;
-    font-size: 2.22rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin: 0 0 7px;
   }
 
   &__artist {
-    font-size: 1.66rem;
+    font-size: 1rem;
     margin: 0 0 31px;
+    line-height: 1.5rem;
   }
 
   &__info {
