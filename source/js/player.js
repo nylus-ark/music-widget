@@ -73,6 +73,10 @@ function playPauseTrack() {
   isPlaying ? pauseTrack() : playTrack();
 }
 
+function prevNextTrack() {
+  isPlaying ? playTrack() : pauseTrack();
+}
+
 function playTrack() {
   pauseIcon.classList.remove('u-hidden');
   playIcon.classList.add('u-hidden');
@@ -103,7 +107,7 @@ function nextTrack() {
   loadTrack(trackIndex);
   loadPrevTrackImg(trackIndex);
   loadNextTrackImg(trackIndex);
-  playTrack();
+  prevNextTrack();
 }
 
 function prevTrack() {
@@ -116,7 +120,7 @@ function prevTrack() {
   loadTrack(trackIndex);
   loadPrevTrackImg(trackIndex);
   loadNextTrackImg(trackIndex);
-  playTrack();
+  prevNextTrack();
 }
 
 function randomTrack() {
