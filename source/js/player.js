@@ -1,4 +1,4 @@
-const currentSongBlock = document.querySelector('.song--current');
+const currentSongBlock = document.querySelector('.song.song--current');
 const trackCover = currentSongBlock?.querySelector('.song__cover-img');
 const trackTitle = currentSongBlock?.querySelector('.song__title');
 const trackArtist = currentSongBlock?.querySelector('.song__artist');
@@ -21,6 +21,9 @@ const randomIcon = randomBtn?.querySelector('.options__icon');
 const pauseIcon = playPauseBtn?.querySelector('.options__icon-pause');
 const playIcon = playPauseBtn?.querySelector('.options__icon-play');
 
+const queueBarArea = document.querySelector('.queue-bar');
+const queueBar = queueBarArea?.querySelector('.js-queueBar');
+
 let trackIndex = 0;
 let isPlaying = false;
 let isRandom = false;
@@ -36,6 +39,8 @@ prevBtn?.addEventListener('click', prevTrack);
 nextBtn?.addEventListener('click', nextTrack);
 randomBtn?.addEventListener('click', randomTrack);
 repeatBtn?.addEventListener('click', repeatTrack);
+currentTrack?.addEventListener('timeupdate', queueaBarUpdate);
+queueBarArea?.addEventListener('click', currentTrackUpdate);
 
 function loadTrack(trackIndex) {
   currentTrack.src = audioTracks[trackIndex].track;
@@ -73,10 +78,6 @@ function playPauseTrack() {
   isPlaying ? pauseTrack() : playTrack();
 }
 
-function prevNextTrack() {
-  isPlaying ? playTrack() : pauseTrack();
-}
-
 function playTrack() {
   pauseIcon.classList.remove('u-hidden');
   playIcon.classList.add('u-hidden');
@@ -107,7 +108,7 @@ function nextTrack() {
   loadTrack(trackIndex);
   loadPrevTrackImg(trackIndex);
   loadNextTrackImg(trackIndex);
-  prevNextTrack();
+  playTrack();
 }
 
 function prevTrack() {
@@ -120,7 +121,7 @@ function prevTrack() {
   loadTrack(trackIndex);
   loadPrevTrackImg(trackIndex);
   loadNextTrackImg(trackIndex);
-  prevNextTrack();
+  playTrack();
 }
 
 function randomTrack() {
@@ -143,5 +144,22 @@ function repeatTrack() {
   let currentIndex = trackIndex;
 
   loadTrack(currentIndex);
+  playTrack();
+}
+
+function queueaBarUpdate(evt) {
+  const currentTime = evt.target.currentTime;
+  const duration = evt.target.duration;
+  const queueBarWidth = (currentTime / duration) * 100;
+
+  queueBar.style.width = `${queueBarWidth}%`;
+}
+
+function currentTrackUpdate(evt) {
+  const progressWidth = queueBarArea.clientWidth;
+  const clickedOffsetX = evt.offsetX;
+  const songDuration = currentTrack.duration;
+
+  currentTrack.currentTime = (clickedOffsetX / progressWidth) * songDuration;
   playTrack();
 }
