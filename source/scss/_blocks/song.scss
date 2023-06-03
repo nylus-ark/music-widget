@@ -1,35 +1,74 @@
 .song {
   text-align: center;
   width: 100%;
-  max-width: 186px;
+  max-width: 166px;
   opacity: 0.5;
 
+  @media (min-width: $media-tablet-landscape) {
+    max-width: 186px;
+  }
+
   &--current {
-    max-width: 244px;
+    max-width: 200px;
     opacity: 1;
-    height: 500px;
+    height: 450px;
+
+    @media (min-width: $media-tablet) {
+      height: 500px;
+    }
+
+    @media (min-width: $media-tablet-landscape) {
+      max-width: 244px;
+    }
+  }
+
+  &--prev,
+  &--next {
+    display: none;
+
+    @media (min-width: $media-tablet) {
+      display: block;
+    }
   }
 
   &__cover {
     border-radius: 20px;
     overflow: hidden;
-    margin: 0 0 27px;
+    margin: 0 0 20px;
+
+    @media (min-width: $media-tablet) {
+      margin: 0 0 27px;
+    }
   }
 
   &__title {
     color: $color-white;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0 0 7px;
+
+    @media (min-width: $media-tablet) {
+      font-size: 1.8rem;
+    }
   }
 
   &__artist {
-    font-size: 1rem;
-    margin: 0 0 31px;
+    font-size: 0.9rem;
+    margin: 0 0 21px;
     line-height: 1.5rem;
+
+    @media (min-width: $media-tablet) {
+      font-size: 1rem;
+      margin: 0 0 31px;
+    }
   }
 
   &__info {
     color: $color-white;
+    font-size: 0.8rem;
+
+    @media (min-width: $media-tablet) {
+      font-size: 1rem;
+    }
   }
 }

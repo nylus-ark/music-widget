@@ -1,10 +1,22 @@
 .songs {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 37px;
+
+  @media (min-width: $media-tablet) {
+    justify-content: space-between;
+    gap: 27px;
+  }
+
+  @media (min-width: $media-tablet-landscape) {
+    gap: 37px;
+  }
 
   &__song {
-    padding: 0 0 81px;
+    padding: 0 0 51px;
+
+    @media (min-width: $media-tablet-landscape) {
+      padding: 0 0 81px;
+    }
   }
 }

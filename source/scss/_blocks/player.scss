@@ -2,5 +2,13 @@
   background-color: $color-dark-grey;
   border-radius: 20px;
   box-shadow: 19px 21px 73px rgba(0 0 0 / 25%);
-  padding: 83px 69px;
+  padding: 43px;
+
+  @media (min-width: $media-tablet) {
+    padding: 63px 49px;
+  }
+
+  @media (min-width: $media-tablet-landscape) {
+    padding: 83px 69px;
+  }
 }
