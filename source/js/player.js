@@ -29,20 +29,20 @@ let isPlaying = false;
 let isRandom = false;
 
 window.addEventListener('load', () => {
-  loadTrack(trackIndex);
+  loadCurrentTrack(trackIndex);
   loadPrevTrackImg(trackIndex);
   loadNextTrackImg(trackIndex);
 });
 
-playPauseBtn?.addEventListener('click', playPauseTrack);
-prevBtn?.addEventListener('click', prevTrack);
-nextBtn?.addEventListener('click', nextTrack);
-randomBtn?.addEventListener('click', randomTrack);
-repeatBtn?.addEventListener('click', repeatTrack);
-currentTrack?.addEventListener('timeupdate', queueaBarUpdate);
-queueBarArea?.addEventListener('click', currentTrackUpdate);
+playPauseBtn?.addEventListener('click', togglePlayPause);
+prevBtn?.addEventListener('click', playPrevTrack);
+nextBtn?.addEventListener('click', playNextTrack);
+randomBtn?.addEventListener('click', toggleRandom);
+repeatBtn?.addEventListener('click', repeatCurrentTrack);
+currentTrack?.addEventListener('timeupdate', updateProgressBar);
+queueBarArea?.addEventListener('click', setCurrentTrackTime);
 
-function loadTrack(trackIndex) {
+function loadCurrentTrack(trackIndex) {
   currentTrack.src = audioTracks[trackIndex].track;
   currentTrack.load();
 
@@ -51,7 +51,7 @@ function loadTrack(trackIndex) {
   trackArtist.textContent = audioTracks[trackIndex].artist;
   trackInfo.textContent = audioTracks[trackIndex].info;
 
-  currentTrack.addEventListener('ended', nextTrack);
+  currentTrack.addEventListener('ended', playNextTrack);
 }
 
 function loadPrevTrackImg(trackIndex) {
@@ -74,7 +74,7 @@ function loadNextTrackImg(trackIndex) {
   nextTrackCover.src = audioTracks[trackIndex].cover;
 }
 
-function playPauseTrack() {
+function togglePlayPause() {
   isPlaying ? pauseTrack() : playTrack();
 }
 
@@ -94,7 +94,7 @@ function pauseTrack() {
   isPlaying = false;
 }
 
-function nextTrack() {
+function playNextTrack() {
   if (trackIndex < audioTracks.length - 1 && isRandom === false) {
     trackIndex = trackIndex + 1;
   } else if (trackIndex < audioTracks.length - 1 && isRandom === true) {
@@ -105,26 +105,26 @@ function nextTrack() {
     trackIndex = 0;
   }
 
-  loadTrack(trackIndex);
+  loadCurrentTrack(trackIndex);
   loadPrevTrackImg(trackIndex);
   loadNextTrackImg(trackIndex);
   playTrack();
 }
 
-function prevTrack() {
+function playPrevTrack() {
   if (trackIndex > 0) {
     trackIndex = trackIndex - 1;
   } else {
     trackIndex = audioTracks.length - 1;
   }
 
-  loadTrack(trackIndex);
+  loadCurrentTrack(trackIndex);
   loadPrevTrackImg(trackIndex);
   loadNextTrackImg(trackIndex);
   playTrack();
 }
 
-function randomTrack() {
+function toggleRandom() {
   isRandom ? pauseRandom() : playRandom();
 }
 
@@ -140,26 +140,26 @@ function pauseRandom() {
   isRandom = false;
 }
 
-function repeatTrack() {
+function repeatCurrentTrack() {
   let currentIndex = trackIndex;
 
-  loadTrack(currentIndex);
+  loadCurrentTrack(currentIndex);
   playTrack();
 }
 
-function queueaBarUpdate(evt) {
+function updateProgressBar(evt) {
   const currentTime = evt.target.currentTime;
   const duration = evt.target.duration;
-  const queueBarWidth = (currentTime / duration) * 100;
+  const progressBarWidth = (currentTime / duration) * 100;
 
-  queueBar.style.width = `${queueBarWidth}%`;
+  queueBar.style.width = `${progressBarWidth}%`;
 }
 
-function currentTrackUpdate(evt) {
-  const progressWidth = queueBarArea.clientWidth;
+function setCurrentTrackTime(evt) {
+  const progressBarWidth = queueBarArea.clientWidth;
   const clickedOffsetX = evt.offsetX;
   const songDuration = currentTrack.duration;
 
-  currentTrack.currentTime = (clickedOffsetX / progressWidth) * songDuration;
+  currentTrack.currentTime = (clickedOffsetX / progressBarWidth) * songDuration;
   playTrack();
 }
