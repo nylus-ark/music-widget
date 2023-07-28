@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Music Widget</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    
+
+    <link rel="stylesheet" href="css/style.min.css?v=1690569806312">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="player">
+  <div class="songs">
+    <div class="songs__song song song--prev">
+      <div class="song__cover">
+        <img class="song__cover-img" src="" alt="">
+      </div>
+    </div>
+
+    <div class="songs__song song song--current">
+      <div class="song__cover">
+        <img class="song__cover-img" src="" alt="">
+      </div>
+      <div class="song__title">
+        Alone Again
+      </div>
+      <div class="song__artist">
+        The Weeknd
+      </div>
+      <div class="song__info">
+        90,012,431 Plays
+      </div>
+    </div>
+
+    <div class="songs__song song song--next">
+      <div class="song__cover">
+        <img class="song__cover-img" src="" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="options">
+  <button class="options__btn js-randomeBtn" type="button" title="Randome track">
+    <svg class="options__icon options__icon--setup options__icon--shuffle">
+      <use xlink:href="img/sprite.svg#icon-shuffle"></use>
+    </svg>
+  </button>
+
+  <button class="options__btn js-prevBtn" type="button" title="Previous track">
+    <svg class="options__icon options__icon--switch">
+      <use xlink:href="img/sprite.svg#icon-back"></use>
+    </svg>
+  </button>
+
+  <button class="options__btn js-playBtn" type="button" title="Play/Pause track">
+    <svg class="options__icon options__icon--play-pause">
+      <use class="options__icon-pause options__icon-play-pause u-hidden" xlink:href="img/sprite.svg#icon-pause"></use>
+      <use class="options__icon-play options__icon-play-pause" xlink:href="img/sprite.svg#icon-play"></use>
+    </svg>
+  </button>
+
+  <button class="options__btn js-nextBtn" type="button" title="Next track">
+    <svg class="options__icon options__icon--switch">
+      <use xlink:href="img/sprite.svg#icon-forward"></use>
+    </svg>
+  </button>
+
+  <button class="options__btn js-repeatBtn" type="button" title="Repeat track">
+    <svg class="options__icon options__icon--setup options__icon--loop">
+      <use xlink:href="img/sprite.svg#icon-loop"></use>
+    </svg>
+  </button>
+</div>
+
+
+  <div class="queue-bar">
+    <div class="queue-bar__bar js-queueBar"></div>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <script src="js/app.min.js" defer="defer"></script>
+  </body>
+</html>
